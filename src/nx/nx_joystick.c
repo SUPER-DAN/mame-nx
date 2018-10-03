@@ -69,17 +69,18 @@ void nxInitializeJoystick( void )
  
     BUTTONCODE( stickIndex, BUTTON_ZL );
     BUTTONCODE( stickIndex, BUTTON_ZR );
-    ADDENTRY( "A",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_A ),              STDCODE( BUTTON1 ) );
-    ADDENTRY( "B",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_B ),              STDCODE( BUTTON2 ) );
-    ADDENTRY( "X",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_X ),              STDCODE( BUTTON3 ) );
-    ADDENTRY( "Y",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_Y ),              STDCODE( BUTTON4 ) );
-    ADDENTRY( "LTrig",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_LEFT_TRIGGER ),   STDCODE( BUTTON5 ) );
-    ADDENTRY( "RTrig",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_RIGHT_TRIGGER ),  STDCODE( BUTTON6 ) );
+    ADDENTRY( "A",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_A ),              STDCODE( BUTTON5 ) );
+    ADDENTRY( "B",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_B ),              STDCODE( BUTTON4 ) );
+    ADDENTRY( "X",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_X ),              STDCODE( BUTTON1 ) );
+    ADDENTRY( "Y",            JOYCODE( stickIndex, JT_BUTTON, BUTTON_Y ),              STDCODE( BUTTON2 ) );
+    ADDENTRY( "LTrig",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_LEFT_TRIGGER ),   STDCODE( BUTTON7 ) );
+    ADDENTRY( "RTrig",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_RIGHT_TRIGGER ),  STDCODE( BUTTON8 ) );
     ADDENTRY( "Plus",         JOYCODE( stickIndex, JT_BUTTON, BUTTON_PLUS ),           STDCODE( START ) );
-    ADDENTRY( "Minus",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_MINUS ),          STDCODE( SELECT ) );     
-    ADDENTRY( "LThumb",       JOYCODE( stickIndex, JT_BUTTON, BUTTON_ZL ),             CODE_OTHER );
-    ADDENTRY( "RThumb",       JOYCODE( stickIndex, JT_BUTTON, BUTTON_ZR ),             CODE_OTHER );
+    ADDENTRY( "Minus",        JOYCODE( stickIndex, JT_BUTTON, BUTTON_MINUS ),          STDCODE( SELECT ) ); 
+	ADDENTRY( "ZL",           JOYCODE( stickIndex, JT_BUTTON, BUTTON_ZL ),             STDCODE( BUTTON6 ) ); 
+	ADDENTRY( "ZR",        	  JOYCODE( stickIndex, JT_BUTTON, BUTTON_ZR ),             STDCODE( BUTTON3 ) );
 	ADDENTRY( "RA Stick",     JOYCODE( stickIndex, JT_BUTTON, BUTTON_RA_STICK ),       CODE_OTHER );
+	ADDENTRY( "LA Stick",     JOYCODE( stickIndex, JT_BUTTON, BUTTON_LA_STICK ),       CODE_OTHER );
 
 
   }
@@ -129,6 +130,10 @@ int osd_is_joy_pressed( int joycode )
 					return (buttons & KEY_L);
 				case BUTTON_RIGHT_TRIGGER:
 					return (buttons & KEY_R);
+				case BUTTON_ZL:
+					return (buttons & KEY_ZL);
+				case BUTTON_ZR:
+					return (buttons & KEY_ZR);
 				case BUTTON_PLUS:
 					return (buttons & KEY_PLUS);
 				case BUTTON_MINUS:
